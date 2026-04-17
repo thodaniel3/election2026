@@ -289,6 +289,11 @@ button:hover {
 .vote-header p {
   color: gray;
   font-size: 14px;
+  
+}.vote-h  {
+  color: gray;
+  font-size: 14px;
+  
 }
 
 /* SUBMIT SECTION */
