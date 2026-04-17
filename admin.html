@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>Admin Dashboard</header>
+
+<div class="container">
+  <h2>Manage Election</h2>
+
+  <input type="text" id="positionTitle" placeholder="New Position">
+  <button onclick="addPosition()">Add Position</button>
+
+  <input type="text" id="candidateName" placeholder="Candidate Name">
+  <input type="text" id="positionId" placeholder="Position ID">
+  <button onclick="addCandidate()">Add Candidate</button>
+
+  <h3>All Votes</h3>
+  <div id="votes"></div>
+</div>
+<div class="admin-section">
+  <a href="adminregistration.html" class="admin-btn">
+    🔐 Registration page
+  </a>
+</div>
+<script type="module" src="admin.js"></script>
+</body>
+</html>

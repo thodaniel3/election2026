@@ -1,0 +1,600 @@
+:root {
+  --green: #0a5c2f;
+  --light-green: #0f7a3d;
+  --yellow: #f5c400;
+  --black: #111;
+  --white: #ffffff;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--white);
+  margin: 0;
+  color: var(--black);
+}
+
+header {
+  background: var(--green);
+  color: var(--white);
+  padding: 15px;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.containerss{
+  width: 90%;
+  max-width: 5500px;
+  margin: 40px auto;
+  background: var(--white);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+
+}.container {
+  width: 90%;
+  max-width: 500px;
+  margin: 40px auto;
+  background: var(--white);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+
+}.containerz {
+  width: 90%;
+  max-width: 600px;
+  margin: 40px auto;
+  background: var(--white);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+
+.signup-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.signup-link:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.signup-link:active {
+  transform: translateY(0);
+}
+
+
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: var(--green);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--light-green);
+}
+
+h2 {
+  text-align: center;
+  color: var(--green);
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+}
+
+.highlight {
+  background: var(--yellow);
+  padding: 5px;
+}
+
+.position {
+  margin-bottom: 30px;
+}
+
+.candidates {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.candidate {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  background: #fff;
+}
+
+
+
+.position {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+
+.candidate-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+button {
+  margin-top: 10px;
+  padding: 6px 10px;
+  background: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  display: block;
+}
+
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+}
+
+/* HEADER */
+header {
+  background: #0a2a66;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 20px;
+}
+
+/* MAIN CONTAINER */
+.containerv {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+/* POSITION CARD */
+.position {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* POSITION TITLE */
+.position h3 {
+  margin-bottom: 15px;
+  color: #0a2a66;
+}
+
+/* CANDIDATES GRID */
+.candidates {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+/* CANDIDATE CARD */
+.candidate {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 2px solid transparent;
+}
+
+/* IMAGE FIX */
+.candidate img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* HOVER */
+.candidate:hover {
+  transform: scale(1.05);
+}
+
+/* SELECTED */
+.candidate.selected {
+  border: 2px solid #0a2a66;
+  background: #e6ecff;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 15px;
+  background: #0a2a66;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #081f4d;
+}
+
+
+
+/* HEADER */
+.main-header {
+  background: #0a2a66;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.main-header h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.main-header p {
+  margin: 5px 0 0;
+  font-size: 14px;
+}
+
+/* VOTE HEADER */
+.vote-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.vote-header h2 {
+  margin-bottom: 5px;
+}
+
+.vote-header p {
+  color: gray;
+  font-size: 14px;
+}
+
+/* SUBMIT SECTION */
+.submit-section {
+  margin-top: 30px;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 13px;
+  color: gray;
+}
+
+
+/* GRID CONTAINER */
+#studentsList {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 per row */
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* STUDENT CARD */
+.card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 13px;
+  text-align: left;
+}
+
+/* RESPONSIVE (VERY IMPORTANT) */
+@media (max-width: 1200px) {
+  #studentsList {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  #studentsList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+
+.candidate {
+  border: 2px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.candidate {
+  border: 2px solid #ddd;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.candidate:hover {
+  transform: scale(1.03);
+}
+
+/* ✅ SELECTED STATE */
+.candidate.selected {
+  border: 3px solid green;
+  background: #eaffea;
+  box-shadow: 0 0 10px rgba(0, 128, 0, 0.3);
+}
+
+
+.candidate {
+  border: 2px solid #ddd;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.candidate:hover {
+  transform: scale(1.03);
+}
+
+/* SELECTED STATE */
+.candidate.selected {
+  border: 3px solid green;
+  background: #eaffea;
+  box-shadow: 0 0 10px rgba(0, 128, 0, 0.3);
+}
+
+.candidate:hover {
+  transform: scale(1.03);
+}
+
+/* 🔥 SELECTED STATE */
+.candidate.selected {
+  border: 3px solid green;
+  background: #eaffea;
+}
+
+
+/* =========================
+   GLOBAL STYLES
+========================= */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7f6;
+}
+
+/* =========================
+   HEADER DESIGN
+========================= */
+.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #062018, #022719);
+  padding: 15px 30px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* logos */
+.logo-left img,
+.logo-right img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  background: white;
+  padding: 5px;
+  border-radius: 10px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+/* title section */
+.header-title {
+  text-align: center;
+  flex: 1;
+}
+
+.header-title h1 {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.header-title p {
+  margin: 5px 0 0;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+
+
+
+/* HEADER TEXT CONTAINER */
+.header-titless {
+  text-align: center;
+  color: white;
+  line-height: 1.3;
+}
+
+/* MAIN TITLE (BIG BUT CONTROLLED) */
+.main-title {
+  font-size: 14px;
+  margin: 0;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* SUB TITLES */
+.sub-title {
+  font-size: 11px;
+  margin: 2px 0;
+  opacity: 0.9;
+}
+
+/* TAGLINE */
+.tagline {
+  font-size: 10px;
+  margin-top: 4px;
+  color: #ffd700; /* yellow accent */
+  font-style: italic;
+}
+
+/* ADMIN SECTION CONTAINER */
+.admin-section {
+  text-align: center;
+  margin-top: 25px;
+
+}.admin-sectionp {
+  text-align: center;
+  margin-top: 30px;
+  padding-left: 1px;
+
+}
+
+
+.butt {
+ display: inline-flexbox;
+  margin-top: 25px;
+  text-align: center;
+}
+
+
+
+/* ADMIN BUTTON */
+.admin-btn {
+  display: inline-block;
+  padding: 10px 18px;
+  background: black;
+  color: #ffd700; /* yellow */
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: bold;
+  transition: 0.3s ease;
+  border: 2px solid #ffd700;
+}
+.admin-btnp {
+  display: inline-block;
+  padding: 10px 18px ;
+  background: black;
+  color: #ffd700; /* yellow */
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: bold;
+  transition: 0.3s ease;
+  border: 2px solid #ffd700;
+  margin-left: 70px;
+
+
+}
+
+/* HOVER EFFECT */
+.admin-btn:hover {
+  background: #ffd700;
+  color: black;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   FORM CONTAINER
+========================= */
+.container {
+  width: 300px;
+  margin: 50px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.container h2 {
+  margin-bottom: 20px;
+  color: #0b3d2e;
+}
+
+/* inputs */
+input {
+  width: 90%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.2s;
+}
+
+input:focus {
+  border-color: #1a7f5a;
+  box-shadow: 0 0 5px rgba(26,127,90,0.3);
+}
+
+/* button */
+button {
+  width: 100%;
+  padding: 12px;
+  background: #1a7f5a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #145c41;
+}
+
+
+
+

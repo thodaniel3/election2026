@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vote</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 🔷 HEADER -->
+<header class="main-header">
+  <h1>FUTOMSA Election Voting Portal</h1>
+  <p>Secure Online Voting System</p>
+</header>
+
+<!-- 🔷 MAIN CONTAINER -->
+<div class="containerv">
+
+  <div class="vote-header">
+    <h2>Cast Your Vote</h2>
+    <p>Select one candidate per position</p>
+  </div>
+
+  <!-- 🔷 POSITIONS WILL LOAD HERE -->
+  <div id="positions"></div>
+
+  <!-- 🔷 SUBMIT BUTTON -->
+  <div class="submit-section">
+    <button onclick="submitVotes()">Submit Votes</button>
+  </div>
+
+</div>
+
+<!-- 🔷 FOOTER -->
+<footer class="footer">
+  <p>© 2026 FUTOMSA Electoral Commission</p>
+</footer>
+
+<!-- JS -->
+<script type="module" src="vote.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin - Registered Students</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<header class="top-header">
+
+  <div class="logo-left">
+    <img src="image/futo.jpg" alt="Logo Left">
+  </div>
+
+  <div class="header-titless">
+
+  <h2 class="main-title">
+  
+  </h2>
+
+  <p class="sub-title">
+     FEDERAL UNIVERSITY OF TECHNOLOGY, OWERRI, FUTO MEDICAL STUDENTS ASSOCIATION (FUTOMSA)
+  </p>
+
+  <p class="sub-title">
+    ELECTORAL COMMISSION (MEC)
+  </p>
+
+  <p class="tagline">
+   Secure Online Voting System
+  </p>
+
+</div>
+
+  <div class="logo-right">
+    <img src="image/msi.jpg" alt="Logo Right">
+  </div>
+
+</header>
+
+<body>
+ <div>   <div class="admin-sectionp">
+  <a href="admin-results.html" class="admin-btn">
+    🔐 Election Results
+    
+  <a href="admin.html" class="admin-btnp">
+    🔐 Add Candidates
+  </a>
+  <div>
+  
+
+  </div>
+  
+</div>
+<div class="admin-sectionp">
+  </div>
+</div>
+  <h2>Registered Students</h2>
+
+  <p><b>Total Registered:</b> <span id="totalCount">0</span></p>
+
+  <button onclick="downloadCSV()">Download CSV</button>
+
+  <div id="studentsList"></div>
+</div>
+
+
+
+
+
+<script type="module" src="admin-registrations.js"></script>
+</body>
+</html>
