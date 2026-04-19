@@ -5,7 +5,6 @@
   --black: #111;
   --white: #ffffff;
 }
-
 body {
   font-family: 'Segoe UI', sans-serif;
   background: var(--white);
