@@ -12,18 +12,18 @@ async function checkAdmin() {
     return
   }
 
-  loadResults()
+  loadResulttts()
 }
 
 checkAdmin()
 
 // 📊 LOAD RESULTS
-async function loadResults() {
+async function loadResulttts() {
 
   const { data: positions } = await supabase.from('positions').select('*')
 
-  const container = document.getElementById("results")
-  container.innerHTML = ""
+  const containerhh = document.getElementById("resulttts")
+  containerhh.innerHTML = ""
 
   for (let pos of positions) {
 
@@ -48,6 +48,6 @@ async function loadResults() {
 
     html += `</div>`
 
-    container.innerHTML += html
+    containerhh.innerHTML += html
   }
 }
