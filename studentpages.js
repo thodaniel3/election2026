@@ -1,23 +1,18 @@
-console.log("JS is working");
 
+console.log("JS is working");
 import { supabase } from './supabaseClient.js';
 
 const container = document.getElementById("studentsContainer");
 
-// EXACT levels as stored in your database
-const levelsOrder = [
-  "100 level",
-  "200 level",
-  "300 level",
-  "400 level A",
-  "400 level B"
-];
+// Order of levels (adjust if your DB values differ)
+const levelsOrder = ["100", "200", "300", "400A", "400B"];
 
 async function fetchStudents() {
   try {
     const { data, error } = await supabase
       .from("students_with_email")
-      .select("*");
+      .select("*")
+      .order("level", { ascending: true });
 
     if (error) {
       console.error("Fetch error:", error.message);
@@ -30,13 +25,10 @@ async function fetchStudents() {
       return;
     }
 
-    console.log("Fetched students:", data);
-
     renderStudents(data);
 
   } catch (err) {
     console.error("Unexpected error:", err);
-    container.innerHTML = "<p style='color:red;'>Unexpected error occurred.</p>";
   }
 }
 
@@ -44,9 +36,8 @@ function renderStudents(students) {
   container.innerHTML = "";
 
   levelsOrder.forEach(level => {
-    const filtered = students.filter(s =>
-      s.level &&
-      s.level.trim().toLowerCase() === level.toLowerCase()
+    const filtered = students.filter(s => 
+      s.level && s.level.toLowerCase().includes(level.toLowerCase())
     );
 
     if (filtered.length === 0) return;
@@ -55,7 +46,7 @@ function renderStudents(students) {
     section.classList.add("level-section");
 
     section.innerHTML = `
-      <div class="level-title">${level}</div>
+      <div class="level-title">${level} Level</div>
       <table>
         <thead>
           <tr>
@@ -105,14 +96,13 @@ function attachDeleteEvents() {
 
       if (error) {
         alert("Delete failed: " + error.message);
-        console.error(error);
       } else {
         alert("Student deleted successfully");
-        fetchStudents(); // refresh list
+        fetchStudents();
       }
     });
   });
 }
 
-// Run on page load
+// Load on page start
 fetchStudents();
