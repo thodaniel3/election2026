@@ -55,7 +55,7 @@ form.addEventListener("submit", async (e) => {
     }
 
     alert("Registration successful!")
-    window.location.href = "login.html"
+    window.location.href = "successpage.html"
 
   } catch (err) {
     alert("Error: " + err.message)
