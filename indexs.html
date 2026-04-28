@@ -33,51 +33,48 @@
 </header>
 
 <div class="admin-sectionp">
-  <a href="admin-login.html" class="admin-btn">🔐 Admin - Login</a>
-  <a href="login.html" class="admin-btnp">🔐 Students Login</a>
+  <a href="admin-login.html" class="admin-btn">
+    🔐 Admin - Login
+  </a>
+
+  <a href="login.html" class="admin-btnp">
+    🔐 Students Login
+  </a>
 </div>
 
 <div class="containerz">
   <h2>Create Account</h2>
-
   <div class="warning">
-    <span></span>
-    <span>For inquiries contact admin at thodaniel@gmail.com or 09162683211</span>
-  </div>
+  <span></span>
+  <span> For inquiries or for support, contact site admin at thodaniel@gmail.com 0r 09162683211</span>
+</div>
 
+  <!-- ✅ FIXED ID -->
   <form id="registerForm">
     <input type="text" id="name" placeholder="Full Name" required>
     <input type="text" id="matric" placeholder="Matric Number" required>
     <input type="email" id="email" placeholder="Email" required>
-
-    <select id="level" required>
-      <option value="" disabled selected>Select Level</option>
-      <option value="100 Level">100 Level</option>
-      <option value="200 Level">200 Level</option>
-      <option value="300 Level">300 Level</option>
-      <option value="400 Level B">400 Level B</option>
-      <option value="400 Level A">400 Level A</option>
-    </select>
-
-    <!-- ✅ UPDATED PASSWORD FIELD -->
-    <div class="password-wrapper">
-      <input type="password" id="password" placeholder="Password" required>
-      <span id="togglePassword" class="toggle-password">👁</span>
-    </div>
+    <!-- ✅ DROPDOWN LEVEL FIX --> <select id="level" required> <option value="" disabled selected>Select Level</option> <option value="100 Level">100 Level</option> <option value="200 Level">200 Level</option> <option value="300 Level">300 Level</option> <option value="400 Level B">400 Level B</option> <option value="400 Level A">400 Level A</option> </select>
+    <input type="password" id="password" placeholder="Password" required>
 
     <button type="submit">Register</button>
   </form>
 </div>
-
 <div class="warning">
   <span>💡</span>
-  <span>Hint: Register and confirm your email before logging in.</span>
+  <span>Hint: Register and confirm your email before logging in.  </span>
 </div>
-
 <div class="admin-sectionp">
-  <a href="passwordreset.html" class="admin-btn">🔐 Password reset</a>
-</div>
-
+  <a href="passwordreset.html" class="admin-btn">
+    🔐 Password reset
+  </a>
 <script type="module" src="register.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+<!-- UPDATE auth.users SET email_confirmed_at = NOW() WHERE email = 'lilianojibosstore@gmail.com';          next -->

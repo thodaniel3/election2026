@@ -234,7 +234,7 @@ header {
 
 
 input, select {
-  width: 100%;
+  width: 95%;
   padding: 12px;
   margin: 10px 0;
   border: 1px solid #ccc;
@@ -705,6 +705,34 @@ body {
   color: black;
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+
+
+
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper input {
+  width: 80%;
+  padding-right: 40px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 33px;
+  user-select: none;
+  color: #555;
+}
+
+.toggle-password:hover {
+  color: #000;
 }
 
 /* =========================

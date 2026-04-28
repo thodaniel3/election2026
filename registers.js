@@ -1,17 +1,5 @@
 import { supabase } from './supabase.js'
 
-// ✅ PASSWORD TOGGLE
-const passwordInput = document.getElementById("password")
-const togglePassword = document.getElementById("togglePassword")
-
-if (togglePassword) {
-  togglePassword.addEventListener("click", () => {
-    const type = passwordInput.getAttribute("type") === "password" ? "text" : "password"
-    passwordInput.setAttribute("type", type)
-    togglePassword.textContent = type === "password" ? "👁" : "🙈"
-  })
-}
-
 const form = document.getElementById("registerForm")
 
 if (!form) {
@@ -38,7 +26,9 @@ form.addEventListener("submit", async (e) => {
       password
     })
 
-    if (error) throw error
+    if (error) {
+      throw error
+    }
 
     const user = data.user
 
@@ -60,7 +50,9 @@ form.addEventListener("submit", async (e) => {
         }
       ])
 
-    if (insertError) throw insertError
+    if (insertError) {
+      throw insertError
+    }
 
     alert("Registration successful!")
     window.location.href = "successpage.html"
