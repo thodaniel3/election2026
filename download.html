@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Download Students Data</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    margin: 0;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Card Container */
+.container {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    width: 900px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    animation: fadeIn 1s ease;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+p {
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-csv {
+    background: #00c9a7;
+}
+
+.btn-pdf {
+    background: #ff6b6b;
+}
+
+button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Table Preview */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+th, td {
+    padding: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Loader */
+.loader {
+    display: none;
+    margin-top: 20px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Download Students Data</h1>
+    <p>Export all registered students as CSV or PDF</p>
+
+    <button class="btn-csv" onclick="downloadCSV()">Download CSV</button>
+    <button class="btn-pdf" onclick="downloadPDF()">Download PDF</button>
+
+    <div class="loader" id="loader">Loading data...</div>
+
+    <table id="previewTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Matric No</th>
+                <th>Level</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<script type="module">
+
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+const supabaseUrl = "https://okxnnbryvxsdpadlhlos.supabase.co"
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9reG5uYnJ5dnhzZHBhZGxobG9zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzMzA4NDIsImV4cCI6MjA5MTkwNjg0Mn0.zcpScxFict36y_NQLCtLvmk78W-Tneou59p_IwXfixk"
+const supabase = createClient(supabaseUrl, supabaseKey)
+
+let students = []
+
+async function fetchStudents() {
+    document.getElementById("loader").style.display = "block"
+
+    const { data, error } = await supabase
+.from('students_with_email')
+.select('email, name, matric_no, level')
+    document.getElementById("loader").style.display = "none"
+
+    if (error) {
+        alert("Error fetching data")
+        console.log(error)
+        return
+    }
+
+    students = data
+    displayPreview()
+}
+
+function displayPreview() {
+    const tbody = document.querySelector("#previewTable tbody")
+    tbody.innerHTML = ""
+
+    students.forEach(s => {
+        const row = `
+            <tr>
+                <td>${s.email || ''}</td>
+                <td>${s.name || ''}</td>
+                <td>${s.matric_no || ''}</td>
+                <td>${s.level || ''}</td>
+                
+            </tr>
+        `
+        tbody.innerHTML += row
+    })
+}
+
+/* CSV DOWNLOAD */
+window.downloadCSV = function () {
+    if (students.length === 0) {
+        alert("No data available")
+        return
+    }
+
+    let csv = "Name,Matric No,Level,Email\n"
+
+    students.forEach(s => {
+        csv += `${s.name},${s.matric_no},${s.level},${s.email}\n`
+    })
+
+    const blob = new Blob([csv], { type: "text/csv" })
+    const url = window.URL.createObjectURL(blob)
+
+    const a = document.createElement("a")
+    a.href = url
+    a.download = "students.csv"
+    a.click()
+}
+
+/* PDF DOWNLOAD */
+window.downloadPDF = function () {
+    if (students.length === 0) {
+        alert("No data available")
+        return
+    }
+
+    const { jsPDF } = window.jspdf
+    const doc = new jsPDF()
+
+    doc.text("Students List", 10, 10)
+
+    let y = 20
+
+    students.forEach((s, i) => {
+        doc.text(
+            `${i+1}. ${s.name} | ${s.matric_no} | ${s.level} | ${s.email}`,
+            10,
+            y
+        )
+        y += 8
+
+        if (y > 280) {
+            doc.addPage()
+            y = 20
+        }
+    })
+
+    doc.save("students.pdf")
+}
+
+/* Load data on page open */
+fetchStudents()
+
+</script>
+
+</body>
+</html>
