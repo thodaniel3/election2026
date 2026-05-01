@@ -7,7 +7,7 @@ async function checkUser() {
   const { data: { user }, error } = await supabase.auth.getUser()
 
   if (error || !user) {
-    window.location.href = "login.html"
+    window.location.href = "index.html"
     return
   }
 
@@ -20,7 +20,7 @@ async function checkUser() {
   if (!student) {
     alert("You are not registered to vote")
     await supabase.auth.signOut()
-    window.location.href = "login.html"
+    window.location.href = "index.html"
     return
   }
 
