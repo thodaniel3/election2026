@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top-header">
+
+  <div class="logo-left">
+    <img src="image/futo.jpg" alt="Logo Left">
+  </div>
+
+  <div class="header-titless">
+    <p class="sub-title">
+      FEDERAL UNIVERSITY OF TECHNOLOGY, OWERRI, FUTO MEDICAL STUDENTS ASSOCIATION (FUTOMSA)
+    </p>
+
+    <p class="sub-title">
+      MEDICAL ELECTORAL COMMISSION (MEC)
+    </p>
+
+    <p class="tagline">
+      Secure Online Voting System
+    </p>
+  </div>
+
+  <div class="logo-right">
+    <img src="image/msi.jpg" alt="Logo Right">
+  </div>
+
+</header>
+
+<div class="admin-sectionp">
+  <a href="admin-login.html" class="admin-btn">🔐 Admin - Login</a>
+  <a href="login.html" class="admin-btnp">🔐 Students Login</a>
+</div>
+
+<div class="containerz">
+  <h2>Create Account</h2>
+
+  <div class="warning">
+    <span></span>
+    <span>For inquiries contact admin at thodaniel@gmail.com or 09162683211</span>
+  </div>
+
+  <form id="registerForm">
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="text" id="matric" placeholder="Matric Number" required>
+    <input type="email" id="email" placeholder="Email" required>
+
+    <select id="level" required>
+      <option value="" disabled selected>Select Level</option>
+      <option value="100 Level">100 Level</option>
+      <option value="200 Level">200 Level</option>
+      <option value="300 Level">300 Level</option>
+      <option value="400 Level B">400 Level B</option>
+      <option value="400 Level A">400 Level A</option>
+    </select>
+
+    <!-- ✅ UPDATED PASSWORD FIELD -->
+    <div class="password-wrapper">
+      <input type="password" id="password" placeholder="Password" required>
+      <span id="togglePassword" class="toggle-password">👁</span>
+    </div>
+
+    <button type="submit">Register</button>
+  </form>
+</div>
+
+<div class="warning">
+  <span>💡</span>
+  <span>Hint: Register and confirm your email before logging in.</span>
+</div>
+
+<div class="admin-sectionp">
+  <a href="passwordreset.html" class="admin-btn">🔐 Password reset</a>
+</div>
+
+<script type="module" src="register.js"></script>
+</body>
+</html>

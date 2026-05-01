@@ -100,6 +100,7 @@ th, td {
 <div class="container">
     <h1>Download Students Data</h1>
     <p>Export all registered students as CSV or PDF</p>
+    
 
     <button class="btn-csv" onclick="downloadCSV()">Download CSV</button>
     <button class="btn-pdf" onclick="downloadPDF()">Download PDF</button>
@@ -164,18 +165,16 @@ function displayPreview() {
         tbody.innerHTML += row
     })
 }
-
-/* CSV DOWNLOAD */
 window.downloadCSV = function () {
     if (students.length === 0) {
         alert("No data available")
         return
     }
 
-    let csv = "Name,Matric No,Level,Email\n"
+    let csv = "Email,Name,Matric No,Level\n"
 
     students.forEach(s => {
-        csv += `${s.name},${s.matric_no},${s.level},${s.email}\n`
+        csv += `${s.email},${s.name},${s.matric_no},${s.level}\n`
     })
 
     const blob = new Blob([csv], { type: "text/csv" })
@@ -184,26 +183,33 @@ window.downloadCSV = function () {
     const a = document.createElement("a")
     a.href = url
     a.download = "students.csv"
-    a.click()
-}
 
-/* PDF DOWNLOAD */
-window.downloadPDF = function () {
+    document.body.appendChild(a)   // ✅ REQUIRED
+    a.click()
+    document.body.removeChild(a)   // ✅ CLEANUP
+}
+/* PDF DOWNLOAD */window.downloadPDF = function () {
     if (students.length === 0) {
         alert("No data available")
+        return
+    }
+
+    if (!window.jspdf) {
+        alert("PDF library not loaded")
         return
     }
 
     const { jsPDF } = window.jspdf
     const doc = new jsPDF()
 
+    doc.setFontSize(14)
     doc.text("Students List", 10, 10)
 
     let y = 20
 
     students.forEach((s, i) => {
         doc.text(
-            `${i+1}. ${s.name} | ${s.matric_no} | ${s.level} | ${s.email}`,
+            `${i+1}. ${s.email} | ${s.name} | ${s.matric_no} | ${s.level}`,
             10,
             y
         )
@@ -217,7 +223,6 @@ window.downloadPDF = function () {
 
     doc.save("students.pdf")
 }
-
 /* Load data on page open */
 fetchStudents()
 
