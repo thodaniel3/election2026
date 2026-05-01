@@ -92,7 +92,7 @@ window.submitVotes = async function () {
 
   if (!user) {
     alert("Session expired")
-    window.location.href = "login.html"
+    window.location.href = "index.html"
     return
   }
 
