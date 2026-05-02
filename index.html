@@ -1,12 +1,187 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Login</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Registration Closed</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+}
+
+/* =========================
+   HEADER DESIGN
+========================= */
+.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #062018, #022719);
+  padding: 15px 30px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.logo-left img,
+.logo-right img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  background: white;
+  padding: 5px;
+  border-radius: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.header-titless {
+  text-align: center;
+  color: white;
+  line-height: 1.3;
+}
+
+.sub-title {
+  font-size: 11px;
+  margin: 2px 0;
+  opacity: 0.9;
+}
+
+.tagline {
+  font-size: 10px;
+  margin-top: 4px;
+  color: #ffd700;
+  font-style: italic;
+}
+
+/* MAIN SECTION */
+.main-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 120px);
+}
+
+/* CARD */
+.card {
+    width: 550px;
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    text-align: center;
+    animation: fadeIn 1s ease;
+}
+
+/* TEXT */
+h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.info-box {
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.08);
+}
+
+.instructions {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+/* BUTTONS */
+.btn-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #00c9a7, #00b894);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn.secondary {
+    background: linear-gradient(135deg, #ff6b6b, #ff4757);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* ANIMATIONS */
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+.fade-delay {
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
+}
+
+.slide-up {
+    animation: slideUp 1s ease forwards;
+}
+
+.slide-delay {
+    animation: slideUp 1s ease forwards;
+    animation-delay: 0.7s;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+</style>
 </head>
+
 <body>
 
-<!-- 🔥 PROFESSIONAL HEADER -->
+<!-- HEADER -->
 <header class="top-header">
 
   <div class="logo-left">
@@ -14,60 +189,60 @@
   </div>
 
   <div class="header-titless">
+    <p class="sub-title">
+      FEDERAL UNIVERSITY OF TECHNOLOGY, OWERRI, FUTO MEDICAL STUDENTS ASSOCIATION (FUTOMSA)
+    </p>
 
-  <h2 class="main-title">
-  
-  </h2>
+    <p class="sub-title">
+      MEDICAL ELECTORAL COMMISSION (MEC)
+    </p>
 
-  <p class="sub-title">
-     FEDERAL UNIVERSITY OF TECHNOLOGY, OWERRI, FUTO MEDICAL STUDENTS ASSOCIATION (FUTOMSA)
-  </p>
-
-  <p class="sub-title">
-    MEDICAL ELECTORAL COMMISSION (MEC)
-  </p>
-
-  <p class="tagline">
-    Secure Online Voting System
-  </p>
-
-</div>
+    <p class="tagline">
+      Secure Online Voting System
+    </p>
+  </div>
 
   <div class="logo-right">
     <img src="image/msi.jpg" alt="Logo Right">
   </div>
 
-</header> 
-  
+</header>
+
+<!-- MAIN CONTENT -->
+<div class="main-wrapper">
+
+    <div class="card">
+
+        <h1 class="fade-in">Registration Closed</h1>
+
+        <p class="slide-up">
+            Student registration has officially ended.
+        </p>
+
+        <div class="info-box fade-delay">
+            <h3>Voting Schedule</h3>
+            <p><strong>Date:</strong> Sunday, 3rd May 2026</p>
+            <p><strong>Time:</strong> 11:00 AM – 5:00 PM</p>
+        </div>
+
+        <div class="instructions slide-delay">
+            <p>
+                All registered students should proceed to the voting platform within the scheduled time to cast their votes.
+            </p>
+
+            <p>
+                <strong>Important:</strong> Only registered students can vote. Any attempt to vote more than once will lead to automatic rejection.
+            </p>
+        </div>
+
+        <div class="btn-group">
+            <a href="index.html" class="btn">Student Login</a>
+            <a href="admin-login.html" class="btn secondary">Admin Login</a>
+        </div>
+
+    </div>
+
 </div>
-<p class="tagline">    
-  </p> <h2>Students Page</h2>
 
-<div class="container">
-  <h2>Login</h2>
-
-
-  <form id="loginForm">
-    <input type="email" id="email" placeholder="Email" required>
-    <input type="password" id="password" placeholder="Password" required>
-
-    <button type="submit">Login</button>
-  </form>
-</div>
-
-<div class="admin-section">
-  <a href="indexrt.html" class="admin-btn">
-    🔐 Sign-up
-
-  </a>
-  <a href="admin-login.html" class="admin-btn">🔐 Admin - Login</a>
-
-</div>
-</div>
-
-<script type="module" src="login.js"></script>
 </body>
 </html>
-
-
-<!-- 🔥 PROFESSIONAL HEADER -->

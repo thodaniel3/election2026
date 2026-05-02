@@ -79,6 +79,77 @@
   <a href="passwordreset.html" class="admin-btn">🔐 Password reset</a>
 </div>
 
-<script type="module" src="register.js"></script>
+<script type="module" src="register-s.js"></script>
 </body>
 </html>
+
+<!-- 
+
+
+
+
+
+
+
+
+
+
+
+create table public.candidates (
+  id uuid not null default extensions.uuid_generate_v4 (),
+  name text not null,
+  position_id uuid null,
+  image text null,
+  party text null,
+  constraint candidates_pkey primary key (id),
+  constraint candidates_position_id_fkey foreign KEY (position_id) references positions (id) on delete CASCADE
+) TABLESPACE pg_default;
+
+
+
+
+
+
+create table public.positions (
+  id uuid not null default extensions.uuid_generate_v4 (),
+  title text not null,
+  name text not null default ''::text,
+  constraint positions_pkey primary key (id)
+) TABLESPACE pg_default;
+
+
+
+
+
+
+create table public.students (
+  id uuid not null,
+  name text null,
+  matric_no text null,
+  level text null,
+  created_at timestamp without time zone null default now(),
+  role text null default 'student'::text,
+  constraint students_pkey primary key (id),
+  constraint students_matric_no_key unique (matric_no),
+  constraint students_id_fkey foreign KEY (id) references auth.users (id) on delete CASCADE
+) TABLESPACE pg_default;
+
+
+
+create table public.votes (
+  id uuid not null default extensions.uuid_generate_v4 (),
+  user_id uuid null,
+  position_id uuid null,
+  candidate_id uuid null,
+  created_at timestamp without time zone null default now(),
+  constraint votes_pkey primary key (id),
+  constraint unique_user_position unique (user_id, position_id),
+  constraint votes_candidate_id_fkey foreign KEY (candidate_id) references candidates (id),
+  constraint votes_position_id_fkey foreign KEY (position_id) references positions (id),
+  constraint votes_user_id_fkey foreign KEY (user_id) references auth.users (id)
+) TABLESPACE pg_default;
+
+
+
+
+  next -->
