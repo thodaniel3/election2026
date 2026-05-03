@@ -146,7 +146,7 @@ tr:hover {
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 
 const supabaseUrl = "https://okxnnbryvxsdpadlhlos.supabase.co"
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9reG5uYnJ5dnhzZHBhZGxobG9zIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzMzA4NDIsImV4cCI6MjA5MTkwNjg0Mn0.zcpScxFict36y_NQLCtLvmk78W-Tneou59p_IwXfixk"
+const supabaseKey = "YOUR_SUPABASE_KEY_HERE" // keep secure in production
 const supabase = createClient(supabaseUrl, supabaseKey)
 
 const resultsDiv = document.getElementById("results")
@@ -154,54 +154,82 @@ const resultsDiv = document.getElementById("results")
 async function loadResults() {
   resultsDiv.innerHTML = "Loading results..."
 
-  // Fetch positions
-  const { data: positions } = await supabase.from("positions").select("*")
+  try {
 
-  // Fetch candidates
-  const { data: candidates } = await supabase.from("candidates").select("*")
+    // Fetch positions
+    const { data: positions, error: posError } = await supabase
+      .from("positions")
+      .select("*")
 
-  // Fetch votes
-  const { data: votes } = await supabase.from("votes").select("*")
+    if (posError) throw posError
 
-  let html = ""
+    // Fetch candidates
+    const { data: candidates, error: candError } = await supabase
+      .from("candidates")
+      .select("*")
 
-  positions.forEach(position => {
-    const positionCandidates = candidates.filter(c => c.position_id === position.id)
+    if (candError) throw candError
 
-    html += `
-      <div class="card">
-        <div class="position-title">${position.title}</div>
-        <table>
-          <thead>
-            <tr>
-              <th>Candidate</th>
-              <th>Party</th>
-              <th>Votes</th>
-            </tr>
-          </thead>
-          <tbody>
-    `
+    // ✅ FIXED: Fetch ALL votes
+    const { data: votes, error: voteError } = await supabase
+      .from("votes")
+      .select("*")
+      .range(0, 5000)
 
-    positionCandidates.forEach(candidate => {
-      const voteCount = votes.filter(v => v.candidate_id === candidate.id).length
+    if (voteError) throw voteError
+
+    console.log("Total votes fetched:", votes.length)
+
+    let html = ""
+
+    positions.forEach(position => {
+
+      const positionCandidates = candidates.filter(
+        c => c.position_id === position.id
+      )
 
       html += `
-        <tr>
-          <td>${candidate.name}</td>
-          <td>${candidate.party || "-"}</td>
-          <td>${voteCount}</td>
-        </tr>
+        <div class="card">
+          <div class="position-title">${position.title}</div>
+          <table>
+            <thead>
+              <tr>
+                <th>Candidate</th>
+                <th>Party</th>
+                <th>Votes</th>
+              </tr>
+            </thead>
+            <tbody>
+      `
+
+      positionCandidates.forEach(candidate => {
+
+        const voteCount = votes.filter(
+          v => v.candidate_id === candidate.id
+        ).length
+
+        html += `
+          <tr>
+            <td>${candidate.name}</td>
+            <td>${candidate.party || "-"}</td>
+            <td>${voteCount}</td>
+          </tr>
+        `
+      })
+
+      html += `
+            </tbody>
+          </table>
+        </div>
       `
     })
 
-    html += `
-          </tbody>
-        </table>
-      </div>
-    `
-  })
+    resultsDiv.innerHTML = html
 
-  resultsDiv.innerHTML = html
+  } catch (error) {
+    console.error(error)
+    resultsDiv.innerHTML = "❌ Error loading results"
+  }
 }
 
 loadResults()
@@ -212,6 +240,7 @@ window.downloadPDF = async function () {
   const doc = new jsPDF()
 
   doc.text("Election Results", 10, 10)
+
   doc.html(document.body, {
     callback: function (doc) {
       doc.save("election-results.pdf")
