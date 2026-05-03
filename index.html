@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Voting Now Open</title>
+<title>Voting Closed</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -85,11 +85,11 @@ body {
     display: inline-block;
     padding: 6px 14px;
     border-radius: 20px;
-    background: #00c853;
+    background: #ff4757;
     font-size: 12px;
     font-weight: bold;
     margin-bottom: 15px;
-    animation: pulse 1.5s infinite;
+    animation: pulseRed 1.5s infinite;
 }
 
 /* TEXT */
@@ -99,9 +99,10 @@ h1 {
 }
 
 .highlight {
-    color: #00e676;
+    color: #ff6b6b;
 }
 
+/* INFO BOX */
 .info-box {
     margin: 20px 0;
     padding: 20px;
@@ -109,6 +110,26 @@ h1 {
     background: rgba(255,255,255,0.08);
 }
 
+/* LOADING DOTS */
+.processing {
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.dots::after {
+    content: "";
+    animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+    0% { content: ""; }
+    33% { content: "."; }
+    66% { content: ".."; }
+    100% { content: "..."; }
+}
+
+/* INSTRUCTIONS */
 .instructions {
     font-size: 14px;
     line-height: 1.6;
@@ -116,13 +137,7 @@ h1 {
     opacity: 0.9;
 }
 
-/* BUTTONS */
-.btn-group {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-}
-
+/* BUTTON */
 .btn {
     padding: 13px 22px;
     border-radius: 8px;
@@ -131,10 +146,6 @@ h1 {
     color: white;
     background: linear-gradient(135deg, #00c9a7, #00b894);
     transition: 0.3s;
-}
-
-.btn.secondary {
-    background: linear-gradient(135deg, #ff6b6b, #ff4757);
 }
 
 .btn:hover {
@@ -148,13 +159,12 @@ h1 {
     to {opacity:1; transform:scale(1);}
 }
 
-@keyframes pulse {
-    0% {box-shadow: 0 0 0 0 rgba(0,200,83,0.7);}
-    70% {box-shadow: 0 0 0 10px rgba(0,200,83,0);}
-    100% {box-shadow: 0 0 0 0 rgba(0,200,83,0);}
+@keyframes pulseRed {
+    0% {box-shadow: 0 0 0 0 rgba(255,71,87,0.7);}
+    70% {box-shadow: 0 0 0 10px rgba(255,71,87,0);}
+    100% {box-shadow: 0 0 0 0 rgba(255,71,87,0);}
 }
 
-/* ENTRY ANIMATIONS */
 .fade-in {
     animation: fadeIn 1s ease forwards;
 }
@@ -203,39 +213,38 @@ h1 {
 
     <div class="card">
 
-        <div class="status">🟢 VOTING OPEN</div>
+        <div class="status">🔴 VOTING CLOSED</div>
 
         <h1 class="fade-in">
-            Voting is Now <span class="highlight">Live</span>
+            Voting Has <span class="highlight">Ended</span>
         </h1>
 
         <p class="slide-up">
-            Registration has ended. Eligible students can now cast their votes.
+            The voting period has officially closed. No further votes can be submitted.
         </p>
 
         <div class="info-box fade-in">
-            <h3>Voting Schedule</h3>
-            <p><strong>Today</strong></p>
-            <p><strong>Time:</strong> 11:00 AM – 5:00 PM</p>
+            <h3>Results Processing</h3>
+            <p>
+                All votes are currently being reviewed and verified by the Electoral Committee.
+            </p>
+
+            <p class="processing">
+                Publishing results<span class="dots"></span>
+            </p>
         </div>
 
         <div class="instructions slide-up">
             <p>
-                Only registered students are allowed to vote.
+                Results will be released after official approval by the Electoral Committee.
             </p>
 
             <p>
-                <strong style="color:#ff6b6b;">
-                Do NOT vote more than once.
-                </strong>
-                Multiple voting attempts will result in automatic rejection.
+                Thank you for participating in the election process.
             </p>
         </div>
 
-        <div class="btn-group">
-            <a href="log-inxps.html" class="btn">Proceed to Vote</a>
-            <a href="admin-login.html" class="btn secondary">Admin Login</a>
-        </div>
+        <a href="index.html" class="btn">Back to Portal</a>
 
     </div>
 
