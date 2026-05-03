@@ -793,3 +793,123 @@ button:hover {
 
 
 
+
+
+
+
+/* DOWNLOAD BUTTON */
+#downloadPdfBtn {
+  padding: 14px 25px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+}
+
+#downloadPdfBtn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.7);
+}
+
+/* ADMIN BUTTON */
+.admin-section {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.admin-btn {
+  display: inline-block;
+  padding: 12px 22px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s;
+  box-shadow: 0 6px 20px rgba(34,197,94,0.4);
+}
+
+.admin-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(34,197,94,0.6);
+}
+
+/* MAIN CONTAINER */
+.containerhgh {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  animation: fadeIn 1s ease;
+}
+
+/* TITLE */
+.containerhgh h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #00e676;
+  font-size: 24px;
+}
+
+/* RESULT CARD */
+.position {
+  background: rgba(255,255,255,0.06);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  transition: 0.3s;
+  animation: slideUp 0.6s ease;
+}
+
+.position:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* POSITION TITLE */
+.position h3 {
+  margin-bottom: 15px;
+  color: #38bdf8;
+  font-size: 18px;
+}
+
+/* RESULT TEXT */
+.position p {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  font-size: 14px;
+}
+
+.position p:last-child {
+  border-bottom: none;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
