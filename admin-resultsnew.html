@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Results</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<header class="top-header">
+
+  <div class="logo-left">
+    <img src="image/futo.jpg" alt="Logo Left">
+  </div>
+
+  <div class="header-titless">
+
+  <h2 class="main-title">
+  
+  </h2>
+
+  <p class="sub-title">
+     FEDERAL UNIVERSITY OF TECHNOLOGY, OWERRI, FUTO MEDICAL STUDENTS ASSOCIATION (FUTOMSA).
+  </p>
+
+  <p class="sub-title">
+    MEDICAL ELECTORAL COMMISSION (MEC)
+  </p>
+
+  <p class="tagline">
+  Secure Online Voting System
+  </p>
+
+</div>
+
+  <div class="logo-right">
+    <img src="image/msi.jpg" alt="Logo Right">
+  </div>
+
+</header>
+<div style="text-align:center; margin:20px;">
+  <button id="downloadPdfBtn" style="
+    padding:12px 20px;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+  ">
+    📄 Download Results as PDF
+  </button>
+</div>
+
+
+
+
+<div class="admin-section">
+  <!--<a href="adminregistration.html" class="admin-btn">
+    🔐 Registration page
+  </a>-->
+<div class="containerhgh">
+  <h2> Election Results </h2>
+
+  <div id="resulttts"></div>
+</div>
+<div class="admin-section">
+  <a href="index.html" class="admin-btn">
+    🔐 logout
+  </a>
+<script type="module" src="admin-resultsnew.js"></script>
+
+
+
+<!-- html2canvas -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<!-- jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<!-- Your PDF JS -->
+<script src="download-pdf.js"></script>
+
+
+
+</body>
+</html>

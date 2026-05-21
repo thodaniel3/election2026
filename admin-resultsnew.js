@@ -1,0 +1,53 @@
+import { supabase } from './supabase.js'
+
+const ADMIN_EMAIL = "admin@2026.com"
+
+// 🔐 CHECK ADMIN
+async function checkAdmin() {
+  const { data } = await supabase.auth.getUser()
+
+  if (!data.user || data.user.email !== ADMIN_EMAIL) {
+    alert("Unauthorized")
+    window.location.href = "login.html"
+    return
+  }
+
+  loadResulttts()
+}
+
+checkAdmin()
+
+// 📊 LOAD RESULTS
+async function loadResulttts() {
+
+  const { data: position } = await supabase.from('position').select('*')
+
+  const containerhh = document.getElementById("resulttts")
+  containerhh.innerHTML = ""
+
+  for (let pos of position) {
+
+    const { data: candidate } = await supabase
+      .from('candidate')
+      .select('*')
+      .eq('position_id', pos.id)
+
+    let html = `<div class="position"><h3>${pos.title}</h3>`
+
+    for (let c of candidate) {
+
+      const { count } = await supabase
+        .from('vote')
+        .select('*', { count: 'exact', head: true })
+        .eq('candidate_id', c.id)
+
+      html += `
+        <p>${c.name} — ${count || 0} vote</p>
+      `
+    }
+
+    html += `</div>`
+
+    containerhh.innerHTML += html
+  }
+}
