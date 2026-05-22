@@ -1,26 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Voting Closed</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<!-- 🔥 PROFESSIONAL HEADER -->
+<header class="top-header">
 
-<style>
+  <div class="logo-left">
+    <img src="image/futo.jpg" alt="Logo Left">
+  </div>
+
+  <div class="header-titless">
+
+  <h2 class="main-title">
+  
+  </h2>
+
+  <p class="sub-title">
+     FEDERAL UNIVERSITY OF TECHNOLOGY, OWERRI, FUTO MEDICAL STUDENTS ASSOCIATION (FUTOMSA)
+  </p>
+
+  <p class="sub-title">
+    MEDICAL ELECTORAL COMMISSION (MEC)
+  </p>
+
+  <p class="tagline">
+    Secure Online Voting System
+  </p>
+
+</div>
+
+  <div class="logo-right">
+    <img src="image/msi.jpg" alt="Logo Right">
+  </div>
+
+</header> 
+  
+</div>
+<p class="tagline">    
+  </p> <h2>Students Page</h2>
+
+<div class="container">
+  <h2>Login</h2>
+
+
+  <form id="loginForm">
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+
+    <button type="submit">Login</button>
+  </form>
+</div>
+
+<div class="admin-section">
+  <a href="passwordreset.html" class="admin-btn">
+    🔐 Password reset.
+
+  </a>
+  <a href="adminlogin.html" class="admin-btn">🔐 Admin - Login</a>
+
+</div>
+</div>
+
+<script type="module" src="login.js"></script>
+</body>
+</html>
+
+
+<!-- 🔥 PROFESSIONAL                
+ 
+
+
+
+
+
+
+
+
+
+
+/* POSITION TITLE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* RESET */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 /* BODY */
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: #fff;
+  background: linear-gradient(135deg, #0f172a, #020617);
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* HEADER */
@@ -28,11 +121,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(90deg, #062018, #022719);
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(12px);
   padding: 15px 30px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
 
+/* LOGOS */
 .logo-left img,
 .logo-right img {
   width: 60px;
@@ -41,215 +136,152 @@ body {
   background: white;
   padding: 5px;
   border-radius: 10px;
-  margin: 0 50px;
+  transition: 0.3s;
 }
 
+.logo-left img:hover,
+.logo-right img:hover {
+  transform: scale(1.1);
+}
+
+/* HEADER TEXT */
 .header-titless {
   text-align: center;
-  line-height: 1.3;
+  line-height: 1.4;
 }
 
 .sub-title {
-  font-size: 11px;
-  opacity: 0.9;
+  font-size: 12px;
+  opacity: 0.85;
 }
 
 .tagline {
-  font-size: 10px;
-  color: #ffd700;
+  font-size: 11px;
+  color: #00e5ff;
   font-style: italic;
 }
 
-/* MAIN */
-.main-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 120px);
+/* DOWNLOAD BUTTON */
+#downloadPdfBtn {
+  padding: 14px 25px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
 }
 
-/* CARD */
-.card {
-    width: 560px;
-    padding: 45px;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(15px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-    text-align: center;
-    animation: fadeIn 1s ease;
+#downloadPdfBtn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.7);
 }
 
-/* STATUS BADGE */
-.status {
-    display: inline-block;
-    padding: 6px 14px;
-    border-radius: 20px;
-    background: #ff4757;
-    font-size: 12px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    animation: pulseRed 1.5s infinite;
+/* ADMIN BUTTON */
+.admin-section {
+  text-align: center;
+  margin: 20px 0;
 }
 
-/* TEXT */
-h1 {
-    font-size: 30px;
-    margin-bottom: 10px;
+.admin-btn {
+  display: inline-block;
+  padding: 12px 22px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s;
+  box-shadow: 0 6px 20px rgba(34,197,94,0.4);
 }
 
-.highlight {
-    color: #ff6b6b;
+.admin-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(34,197,94,0.6);
 }
 
-/* INFO BOX */
-.info-box {
-    margin: 20px 0;
-    padding: 20px;
-    border-radius: 12px;
-    background: rgba(255,255,255,0.08);
+/* MAIN CONTAINER */
+.containerhgh {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  animation: fadeIn 1s ease;
 }
 
-/* LOADING DOTS */
-.processing {
-    margin-top: 10px;
-    font-size: 14px;
-    opacity: 0.8;
+/* TITLE */
+.containerhgh h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #00e676;
+  font-size: 24px;
 }
 
-.dots::after {
-    content: "";
-    animation: dots 1.5s infinite;
+/* RESULT CARD */
+.position {
+  background: rgba(255,255,255,0.06);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  transition: 0.3s;
+  animation: slideUp 0.6s ease;
 }
 
-@keyframes dots {
-    0% { content: ""; }
-    33% { content: "."; }
-    66% { content: ".."; }
-    100% { content: "..."; }
+.position:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* INSTRUCTIONS */
-.instructions {
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 25px;
-    opacity: 0.9;
+/* POSITION TITLE */
+.position h3 {
+  margin-bottom: 15px;
+  color: #38bdf8;
+  font-size: 18px;
 }
 
-/* BUTTON */
-.btn {
-    padding: 13px 22px;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-    color: white;
-    background: linear-gradient(135deg, #00c9a7, #00b894);
-    transition: 0.3s;
+/* RESULT TEXT */
+.position p {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  font-size: 14px;
 }
 
-.btn:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+.position p:last-child {
+  border-bottom: none;
 }
 
 /* ANIMATIONS */
 @keyframes fadeIn {
-    from {opacity:0; transform:scale(0.95);}
-    to {opacity:1; transform:scale(1);}
-}
-
-@keyframes pulseRed {
-    0% {box-shadow: 0 0 0 0 rgba(255,71,87,0.7);}
-    70% {box-shadow: 0 0 0 10px rgba(255,71,87,0);}
-    100% {box-shadow: 0 0 0 0 rgba(255,71,87,0);}
-}
-
-.fade-in {
-    animation: fadeIn 1s ease forwards;
-}
-
-.slide-up {
-    animation: slideUp 1s ease forwards;
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes slideUp {
-    from {opacity:0; transform:translateY(30px);}
-    to {opacity:1; transform:translateY(0);}
-}
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}        */
 
-</style>
-</head>
 
-<body>
 
-<!-- HEADER -->
-<header class="top-header">
 
-  <div class="logo-left">
-    <img src="image/futo.jpg">
-  </div>
 
-  <div class="header-titless">
-    <p class="sub-title">
-      FEDERAL UNIVERSITY OF TECHNOLOGY, OWERRI, FUTOMSA
-    </p>
-    <p class="sub-title">
-      MEDICAL ELECTORAL COMMISSION (MEC)
-    </p>
-    <p class="tagline">
-      Secure Online Voting System
-    </p>
-  </div>
 
-  <div class="logo-right">
-    <img src="image/msi.jpg">
-  </div>
 
-</header>
-
-<!-- MAIN -->
-<div class="main-wrapper">
-
-    <div class="card">
-
-        <div class="status">🔴 VOTING CLOSED</div>
-
-        <h1 class="fade-in">
-            Voting Has <span class="highlight">Ended</span>
-        </h1>
-
-        <p class="slide-up">
-            The voting period has officially closed. No further votes can be submitted.
-        </p>
-
-        <div class="info-box fade-in">
-            <h3>Results Submitted Successfully</h3>
-            <p>
-                All votes have being reviewed and verified by the Electoral Committee.
-            </p>
-
-            <p class="processing">
-              results  are now Published <span class="dots"></span>
-            </p>
-        </div>
-
-        <div class="instructions slide-up">
-            <p>
-               click below to see Election Results.
-            </p>
-
-            <p>
-                Thank you for participating in the election process. For Business or more information call site admin@ 08107247625.
-            </p>
-        </div>
-
-        <a href="adminlogin.html" class="btn">Admin Login</a>
-           <a href="admin-results.html" class="btn">Election Results</a>
-
-    </div>
-
-</div>
-
-</body>
-</html>
+HEADER -->

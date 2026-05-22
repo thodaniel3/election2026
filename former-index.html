@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Voting Closed</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+}
+
+/* HEADER */
+.top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #062018, #022719);
+  padding: 15px 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.logo-left img,
+.logo-right img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  background: white;
+  padding: 5px;
+  border-radius: 10px;
+  margin: 0 50px;
+}
+
+.header-titless {
+  text-align: center;
+  line-height: 1.3;
+}
+
+.sub-title {
+  font-size: 11px;
+  opacity: 0.9;
+}
+
+.tagline {
+  font-size: 10px;
+  color: #ffd700;
+  font-style: italic;
+}
+
+/* MAIN */
+.main-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 120px);
+}
+
+/* CARD */
+.card {
+    width: 560px;
+    padding: 45px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    text-align: center;
+    animation: fadeIn 1s ease;
+}
+
+/* STATUS BADGE */
+.status {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: #ff4757;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    animation: pulseRed 1.5s infinite;
+}
+
+/* TEXT */
+h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.highlight {
+    color: #ff6b6b;
+}
+
+/* INFO BOX */
+.info-box {
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.08);
+}
+
+/* LOADING DOTS */
+.processing {
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.dots::after {
+    content: "";
+    animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+    0% { content: ""; }
+    33% { content: "."; }
+    66% { content: ".."; }
+    100% { content: "..."; }
+}
+
+/* INSTRUCTIONS */
+.instructions {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+/* BUTTON */
+.btn {
+    padding: 13px 22px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(135deg, #00c9a7, #00b894);
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from {opacity:0; transform:scale(0.95);}
+    to {opacity:1; transform:scale(1);}
+}
+
+@keyframes pulseRed {
+    0% {box-shadow: 0 0 0 0 rgba(255,71,87,0.7);}
+    70% {box-shadow: 0 0 0 10px rgba(255,71,87,0);}
+    100% {box-shadow: 0 0 0 0 rgba(255,71,87,0);}
+}
+
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+.slide-up {
+    animation: slideUp 1s ease forwards;
+}
+
+@keyframes slideUp {
+    from {opacity:0; transform:translateY(30px);}
+    to {opacity:1; transform:translateY(0);}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="top-header">
+
+  <div class="logo-left">
+    <img src="image/futo.jpg">
+  </div>
+
+  <div class="header-titless">
+    <p class="sub-title">
+      FEDERAL UNIVERSITY OF TECHNOLOGY, OWERRI, FUTOMSA
+    </p>
+    <p class="sub-title">
+      MEDICAL ELECTORAL COMMISSION (MEC)
+    </p>
+    <p class="tagline">
+      Secure Online Voting System
+    </p>
+  </div>
+
+  <div class="logo-right">
+    <img src="image/msi.jpg">
+  </div>
+
+</header>
+
+<!-- MAIN -->
+<div class="main-wrapper">
+
+    <div class="card">
+
+        <div class="status">🔴 VOTING CLOSED</div>
+
+        <h1 class="fade-in">
+            Voting Has <span class="highlight">Ended</span>
+        </h1>
+
+        <p class="slide-up">
+            The voting period has officially closed. No further votes can be submitted.
+        </p>
+
+        <div class="info-box fade-in">
+            <h3>Results Submitted Successfully</h3>
+            <p>
+                All votes have being reviewed and verified by the Electoral Committee.
+            </p>
+
+            <p class="processing">
+              results  are now Published <span class="dots"></span>
+            </p>
+        </div>
+
+        <div class="instructions slide-up">
+            <p>
+               click below to see Election Results.
+            </p>
+
+            <p>
+                Thank you for participating in the election process. For Business or more information call site admin@ 08107247625.
+            </p>
+        </div>
+
+        <a href="adminlogin.html" class="btn">Admin Login</a>
+           <a href="admin-resultsnew.html" class="btn">Election Results</a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

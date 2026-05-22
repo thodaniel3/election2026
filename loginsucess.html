@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Login Successful - FUTOMSA Voting Portal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    min-height:100vh;
+    overflow:hidden;
+    background:linear-gradient(135deg,#071b34,#0a2b52,#04111f);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    color:white;
+}
+
+/* Animated Background */
+
+.bg-animation{
+    position:absolute;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:0;
+}
+
+.circle{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,0.05);
+    animation:float 12s infinite linear;
+}
+
+.circle:nth-child(1){
+    width:250px;
+    height:250px;
+    left:-80px;
+    top:10%;
+}
+
+.circle:nth-child(2){
+    width:180px;
+    height:180px;
+    right:5%;
+    top:20%;
+    animation-duration:15s;
+}
+
+.circle:nth-child(3){
+    width:120px;
+    height:120px;
+    bottom:10%;
+    left:15%;
+    animation-duration:18s;
+}
+
+.circle:nth-child(4){
+    width:200px;
+    height:200px;
+    bottom:-50px;
+    right:20%;
+    animation-duration:20s;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0px) rotate(0deg);
+    }
+    50%{
+        transform:translateY(-40px) rotate(180deg);
+    }
+    100%{
+        transform:translateY(0px) rotate(360deg);
+    }
+}
+
+/* Main Card */
+
+.container{
+    position:relative;
+    z-index:2;
+    width:90%;
+    max-width:800px;
+    padding:50px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,0.15);
+    box-shadow:0 15px 40px rgba(0,0,0,0.4);
+    text-align:center;
+    animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.success-icon{
+    width:120px;
+    height:120px;
+    margin:auto;
+    margin-bottom:25px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#00c853,#00e676);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:60px;
+    box-shadow:0 0 30px rgba(0,230,118,0.5);
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.08);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
+h1{
+    font-size:42px;
+    margin-bottom:15px;
+    font-weight:700;
+}
+
+.subtitle{
+    font-size:18px;
+    line-height:1.8;
+    color:#d7e7ff;
+    margin-bottom:35px;
+}
+
+/* Timer */
+
+.timer-box{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    margin-top:20px;
+    margin-bottom:40px;
+}
+
+.time-card{
+    background:rgba(255,255,255,0.08);
+    border-radius:20px;
+    padding:25px 10px;
+    border:1px solid rgba(255,255,255,0.1);
+    transition:0.4s;
+}
+
+.time-card:hover{
+    transform:translateY(-6px);
+    background:rgba(255,255,255,0.12);
+}
+
+.time-card h2{
+    font-size:40px;
+    margin-bottom:8px;
+    color:#00e5ff;
+}
+
+.time-card span{
+    font-size:14px;
+    letter-spacing:1px;
+    color:#d7e7ff;
+}
+
+/* Buttons */
+
+.button-group{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 35px;
+    border:none;
+    border-radius:50px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.4s ease;
+    text-decoration:none;
+    display:inline-block;
+}
+
+.btn-student{
+    background:linear-gradient(135deg,#00b0ff,#2979ff);
+    color:white;
+    box-shadow:0 10px 25px rgba(41,121,255,0.35);
+}
+
+.btn-admin{
+    background:linear-gradient(135deg,#ff6d00,#ff9100);
+    color:white;
+    box-shadow:0 10px 25px rgba(255,145,0,0.35);
+}
+
+.btn:hover{
+    transform:translateY(-5px) scale(1.03);
+}
+
+/* Footer */
+
+.footer{
+    margin-top:35px;
+    color:#c7d9ff;
+    font-size:14px;
+}
+
+/* Responsive */
+
+@media(max-width:700px){
+
+    .container{
+        padding:35px 20px;
+    }
+
+    h1{
+        font-size:30px;
+    }
+
+    .timer-box{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .time-card h2{
+        font-size:30px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<!-- Background Animation -->
+<div class="bg-animation">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+</div>
+
+<!-- Main Container -->
+<div class="container">
+
+    <div class="success-icon">
+        ✓
+    </div>
+
+    <h1>Login Successful</h1>
+
+    <p class="subtitle">
+        You have successfully logged into the FUTOMSA Online Voting Platform.<br>
+        Eligible students can participate in the election exercise once voting officially begins for the various Constituencies.
+    </p>
+
+    <p style="margin-bottom:15px;font-size:18px;color:#ffffff;">
+        Voting Commences On:
+    </p>
+
+    <h2 style="margin-bottom:25px;color:#00e5ff;">
+        6th June 2026
+    </h2>
+
+    <!-- Countdown Timer -->
+    <div class="timer-box">
+
+        <div class="time-card">
+            <h2 id="days">00</h2>
+            <span>DAYS</span>
+        </div>
+
+        <div class="time-card">
+            <h2 id="hours">00</h2>
+            <span>HOURS</span>
+        </div>
+
+        <div class="time-card">
+            <h2 id="minutes">00</h2>
+            <span>MINUTES</span>
+        </div>
+
+        <div class="time-card">
+            <h2 id="seconds">00</h2>
+            <span>SECONDS</span>
+        </div>
+
+    </div>
+
+    <!-- Buttons -->
+    <div class="button-group">
+
+        <a href="index.html" class="btn btn-student">
+            Proceed to vote
+        </a>
+
+        <a href="adminlogin.html" class="btn btn-admin">
+            Admin Login
+        </a>
+
+    </div>
+
+    <div class="footer">
+        © 2026 FUTOMSA Electoral Commission • Secure Voting System
+    </div>
+
+</div>
+
+<script>
+
+// Countdown Timer
+
+const countdownDate = new Date("June 6, 2026 00:00:00").getTime();
+
+const timer = setInterval(function(){
+
+    const now = new Date().getTime();
+
+    const distance = countdownDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+    const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) /
+        (1000 * 60 * 60)
+    );
+
+    const minutes = Math.floor(
+        (distance % (1000 * 60 * 60)) /
+        (1000 * 60)
+    );
+
+    const seconds = Math.floor(
+        (distance % (1000 * 60)) /
+        1000
+    );
+
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+
+    if(distance < 0){
+
+        clearInterval(timer);
+
+        document.getElementById("days").innerHTML = "00";
+        document.getElementById("hours").innerHTML = "00";
+        document.getElementById("minutes").innerHTML = "00";
+        document.getElementById("seconds").innerHTML = "00";
+    }
+
+},1000);
+
+</script>
+
+</body>
+</html>

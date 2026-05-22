@@ -27,5 +27,5 @@ form.addEventListener('submit', async (e) => {
   // optional: store session info
   localStorage.setItem("user", JSON.stringify(data.user))
 
-  window.location.href = "votenew.html"
+  window.location.href = "loginsucess.html"
 })
